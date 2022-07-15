@@ -10,6 +10,7 @@ mongoose.connect(MONGO_URL).then(()=>console.log('Data base started')).catch(err
 const ToDos = mongoose.model('ToDos', {title:String, complited:Boolean})
 
 const app = express()
+app.use(allowCrossDomain)
 app.use(express.json())
 app.use(cors({ credentials: true }))
 
