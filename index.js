@@ -30,12 +30,15 @@ app.post('/api/post', (req,res)=>{
     res.json(newToDo)
 })
 
-app.post('/api/del', (req,res)=>{
+app.options('/api/del', cors())
+app.delete('/api/del', (req,res)=>{
     ToDos.findByIdAndRemove(req.body.id).exec()
     res.send(`${req.body.id} deleted`)
 })
 
-app.post('/api/put', (req, res)=>{
+
+app.options('/api/put', cors())
+app.patch('/api/put', (req, res)=>{
     ToDos.findById(req.body.id, (err, todo)=>{
         if(err){
             res.send(`${req.body.id} not found`)
