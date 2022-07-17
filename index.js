@@ -11,7 +11,7 @@ const ToDos = mongoose.model('ToDos', {title:String, complited:Boolean})
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: "*"}))
 
 
 app.get('/api/get', (req, res)=>{
