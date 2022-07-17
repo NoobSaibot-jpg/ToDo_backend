@@ -30,14 +30,24 @@ app.post('/api/post', (req,res)=>{
     res.json(newToDo)
 })
 
-app.options('/api/del', cors())
+app.options('/api/del', function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With, Content-Type, Accept');
+   res.writeHead(200);
+   res.end();
+});
 app.delete('/api/del', (req,res)=>{
     ToDos.findByIdAndRemove(req.body.id).exec()
     res.send(`${req.body.id} deleted`)
 })
 
 
-app.options('/api/put', cors())
+app.options('/api/put', function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With, Content-Type, Accept');
+   res.writeHead(200);
+   res.end();
+});
 app.patch('/api/put', (req, res)=>{
     ToDos.findById(req.body.id, (err, todo)=>{
         if(err){
