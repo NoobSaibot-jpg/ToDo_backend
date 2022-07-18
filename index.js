@@ -32,7 +32,7 @@ app.post('/api/post', (req,res)=>{
 
 app.options('/api/del', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
    res.writeHead(200);
    res.end();
 });
@@ -44,8 +44,8 @@ app.delete('/api/del', (req,res)=>{
 
 app.options('/api/put', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With, Content-Type, Accept');
-   res.writeHead(200);
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    res.writeHead(200);
    res.end();
 });
 app.patch('/api/put', (req, res)=>{
